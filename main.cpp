@@ -24,11 +24,27 @@ int main()
 
     delete dyh;
 
+    x = 2;
+
     Newton_class* newt = new Newton_class;
     newt->setTolerance(0.001);
+    newt->setMax(100);
 
-    if(newt->count(f, x) == 0)
-        cout << "\nNewton: x = " << x;
+    switch (newt->count(f, x))
+    {
+        case 0:
+            cout << "\nNewton: x = " << x;
+            break;
+        case 1:
+            cout << "\nНевдала початкова точка";
+            break;
+        case 2:
+            cout << "\nПомилка в ході обчислення";
+            break;
+        case 3:
+            cout << "\nДосягнено максимальної кількості ітерацій";
+            break;
+    }
 
     delete newt;
     

@@ -4,9 +4,13 @@
 
 class Newton_class : public Solve_class
 {
+    private:
+        int max;
     public:
         Newton_class();
         ~Newton_class();
+
+        void setMax(int vol_max);
 
         double derivative(Func f, double x);
 
